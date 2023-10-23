@@ -1,7 +1,9 @@
-import {createAppContainer} from 'react-navigation'
+import {createAppContainer, ThemeColors} from 'react-navigation'
 import {createStackNavigator} from 'react-navigation-stack'
 import {MainScreen} from "../screens/MainScreen";
 import {PostScreen} from "../screens/PostScreen";
+import {THEME} from "../theme";
+import {Platform} from "react-native";
 
 let PostNavigator = createStackNavigator({
         Main: MainScreen,
@@ -10,7 +12,13 @@ let PostNavigator = createStackNavigator({
         }
     },
     {
-        initialRouteName: 'Main'
+        initialRouteName: 'Main',
+        defaultNavigationOptions: {
+            headerStyle: {
+                backgroundColor: Platform.OS === 'android' ? THEME.MAIN_COLOR : '#fff'
+            },
+            headerTintColor: Platform.OS === 'android' ? '#fff' : THEME.MAIN_COLOR
+        }
     }
 )
 
