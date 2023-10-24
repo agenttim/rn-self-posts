@@ -27,13 +27,23 @@ export const MainScreen = ({navigation}) => {
 
 MainScreen.navigationOptions = {
     headerTitle: 'Мой блог',
-    headerRight: (
+    headerRight: () => (
         <HeaderButtons HeaderButtonComponent={AppHeaderIcon}>
             <Item
                 title="Take photo"
                 iconName='ios-camera'
                 onPress={() => console.log('Press photo')}/>
-        </HeaderButtons>)
+        </HeaderButtons>),
+    headerLeft: () => (
+        <HeaderButtons HeaderButtonComponent={AppHeaderIcon}>
+            <Item
+                title="Toggle Drawer"
+                iconName='ios-menu'
+                onPress={() => console.log('Press photo')}/>
+        </HeaderButtons>),
+    headerLeftContainerStyle: {
+        marginLeft: 10
+    }
 }
 
 const styles = StyleSheet.create({
